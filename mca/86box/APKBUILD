@@ -1,0 +1,55 @@
+# Maintainer: mca <103889850+mca3@users.noreply.github.com>
+pkgname=86box
+pkgver=3.11
+pkgrel=0
+pkgdesc="Emulator of x86-based machines based on PCem."
+url="https://86box.net"
+arch="all"
+license="GPL-2.0"
+depends=""
+makedepends="
+	cmake
+	extra-cmake-modules
+	glib-dev
+	libevdev-dev
+	libpcap-dev
+	openal-soft-dev
+	qt5-qtbase-dev
+	qt5-qttools-dev
+	rtmidi-dev
+"
+checkdepends=""
+install=""
+source="
+	https://github.com/86Box/86Box/archive/refs/tags/v$pkgver/86Box-$pkgver.tar.gz
+
+	fix-pcap-net-build.patch
+"
+builddir="$srcdir/86Box-$pkgver"
+
+build() {
+	if [ "$CBUILD" != "$CHOST" ]; then
+		CMAKE_CROSSOPTS="-DCMAKE_SYSTEM_NAME=Linux -DCMAKE_HOST_SYSTEM_NAME=Linux"
+	fi
+
+	cmake -B build \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DRELEASE=ON \
+		$CMAKE_CROSSOPTS .
+
+	cmake --build build
+}
+
+check() {
+	cd build
+	CTEST_OUTPUT_ON_FAILURE=TRUE ctest
+}
+
+package() {
+	DESTDIR="$pkgdir" cmake --install build
+}
+
+sha512sums="
+4705f0bb7186a19b8a74450132a73c01e9fae80809e7cebf2ef0294100081ff6a27e0f81dbc661596a8d1cd7b04afc5dddb3e990dd10951a37a48de338c49a77  86Box-3.11.tar.gz
+053cac3e300042e126b23bd8f7ba32de1921c9ffd2692828b60b735eaa87ef4dd242ee05f8e1f4667720705f24ad30e05342a6a0c0fe6b3551b314fdcad776fc  fix-pcap-net-build.patch
+"
