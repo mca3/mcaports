@@ -1,0 +1,28 @@
+# Maintainer: mca3 <103889850+mca3@users.noreply.github.com>
+pkgname=dwm
+pkgver=20230123
+pkgrel=0
+pkgdesc="mca's build of dwm"
+url='https://github.com/mca3/dwm'
+arch="all"
+license="MIT"
+depends=""
+makedepends="libx11-dev libxft-dev libxinerama-dev fontconfig-dev"
+install=""
+options="!check"
+subpackages="$pkgname-doc"
+_rev='d6f22238d9fb8ab9f426d30b9a08dabeaf478a96'
+source="https://github.com/mca3/dwm/archive/$_rev.tar.gz"
+builddir="$srcdir/dwm-$_rev"
+
+build() {
+	make
+}
+
+package() {
+	make PREFIX="/usr" DESTDIR="$pkgdir" install
+}
+
+sha512sums="
+592f778a023658592216237c9bffa1b80dbb29d8cbc193716bf9a90514ebf9ea6d5edf53ed745d2cdb9141a5ed8209e5e0463262c2e543a82e76fbad357db427  d6f22238d9fb8ab9f426d30b9a08dabeaf478a96.tar.gz
+"
