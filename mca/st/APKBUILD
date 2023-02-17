@@ -1,0 +1,29 @@
+# Maintainer: mca3 <103889850+mca3@users.noreply.github.com>
+pkgname=st
+pkgver=20221227
+pkgrel=0
+pkgdesc="mca's build of st"
+url='https://github.com/mca3/st'
+arch="all"
+license="MIT"
+depends=""
+makedepends="libx11-dev libxft-dev"
+checkdepends=""
+install=""
+options="!check"
+subpackages="$pkgname-doc"
+_rev='7730460d56e90f341a747cf9a27cb8d2f7ef1c1f'
+source="https://github.com/mca3/st/archive/$_rev.tar.gz"
+builddir="$srcdir/st-$_rev"
+
+build() {
+	make
+}
+
+package() {
+	make PREFIX="/usr" DESTDIR="$pkgdir" install
+}
+
+sha512sums="
+1cea843c6596ee3933dd1990a6f49e34f972f85f74b9b1cc1c6a1d3ee028b27f4293385d4dfed80a932f0374af927ac083166bfdfc9224601ccbae0cb1e5f29e  7730460d56e90f341a747cf9a27cb8d2f7ef1c1f.tar.gz
+"
