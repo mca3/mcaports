@@ -1,0 +1,36 @@
+# Maintainer: mca <103889850+mca3@users.noreply.github.com>
+pkgname=libticalcs
+pkgver=1.1.9
+pkgrel=0
+pkgdesc="TI calculator library"
+url="http://lpg.ticalc.org/prj_tilp/"
+arch="all"
+license="GPL-2.0"
+depends=""
+depends_dev=""
+makedepends="$depends_dev glib-dev libticables-dev libtifiles-dev libarchive-dev autoconf automake libtool"
+checkdepends=""
+install=""
+subpackages="$pkgname-dev"
+source="http://downloads.sourceforge.net/project/tilp/tilp2-linux/tilp2-1.18/libticalcs2-$pkgver.tar.bz2"
+builddir="$srcdir/libticalcs2-$pkgver"
+
+prepare() {
+	autoreconf -if
+}
+
+build() {
+	./configure --prefix=/usr
+	make
+}
+
+check() {
+	make check
+}
+
+package() {
+	make DESTDIR="$pkgdir" install
+}
+sha512sums="
+a55fa92df787929397f4ed3e8f922355f71c7883459ceb98fbb8d39d18f06441147188aaabf7a67083d70549443e439744e68527742e2b7b5d3d2838cc41b4da  libticalcs2-1.1.9.tar.bz2
+"

@@ -1,0 +1,37 @@
+# Maintainer: mca <103889850+mca3@users.noreply.github.com>
+pkgname=libticables
+pkgver=1.3.5
+pkgrel=0
+pkgdesc="TI link cable library"
+url="http://lpg.ticalc.org/prj_tilp/"
+arch="all"
+license="GPL-2.0"
+depends=""
+depends_dev=""
+makedepends="$depends_dev libusb-dev glib-dev autoconf automake libtool"
+checkdepends=""
+install=""
+subpackages="$pkgname-dev"
+source="http://downloads.sourceforge.net/project/tilp/tilp2-linux/tilp2-1.18/libticables2-$pkgver.tar.bz2"
+builddir="$srcdir/libticables2-$pkgver"
+
+prepare() {
+	autoreconf -if
+}
+
+build() {
+	./configure --prefix=/usr --enable-libusb10
+	make
+}
+
+check() {
+	make check
+}
+
+package() {
+	make DESTDIR="$pkgdir" install
+}
+
+sha512sums="
+171abdf41f496891c62da17a2b84d929ac32021b0f2abc0c37ed73ec93806d4a14df37a8ffbe2b0c172ff3461aa6c639fc1ba23aafb19e024b99448dd66c63bd  libticables2-1.3.5.tar.bz2
+"

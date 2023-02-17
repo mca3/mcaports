@@ -1,0 +1,37 @@
+# Maintainer: mca <103889850+mca3@users.noreply.github.com>
+pkgname=libtifiles
+pkgver=1.1.7
+pkgrel=0
+pkgdesc="TI file format library"
+url="http://lpg.ticalc.org/prj_tilp/"
+arch="all"
+license="GPL-2.0"
+depends=""
+depends_dev=""
+makedepends="$depends_dev glib-dev libticonv-dev libarchive-dev autoconf automake libtool"
+checkdepends=""
+install=""
+subpackages="$pkgname-dev"
+source="http://downloads.sourceforge.net/project/tilp/tilp2-linux/tilp2-1.18/libtifiles2-$pkgver.tar.bz2"
+builddir="$srcdir/libtifiles2-$pkgver"
+
+prepare() {
+	autoreconf -if
+}
+
+build() {
+	./configure --prefix=/usr
+	make
+}
+
+check() {
+	make check
+}
+
+package() {
+	make DESTDIR="$pkgdir" install
+}
+
+sha512sums="
+e2ef4de0ce8c78f0da4098ec618a7194f9b94a028f9cb54a0ea1c29c00028d7cf144a067d8aaf8010ad094378b6426d05621d530cfbfa05f793f6c1ed41fcaef  libtifiles2-1.1.7.tar.bz2
+"

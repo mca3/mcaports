@@ -1,0 +1,37 @@
+# Maintainer: mca <103889850+mca3@users.noreply.github.com>
+pkgname=libticonv
+pkgver=1.1.5
+pkgrel=0
+pkgdesc="TI charset conversion library"
+url="http://lpg.ticalc.org/prj_tilp/"
+arch="all"
+license="GPL-2.0"
+depends=""
+depends_dev="glib-dev"
+makedepends="$depends_dev autoconf automake libtool"
+checkdepends=""
+install=""
+subpackages="$pkgname-dev"
+source="http://downloads.sourceforge.net/project/tilp/tilp2-linux/tilp2-1.18/libticonv-$pkgver.tar.bz2"
+builddir="$srcdir/libticonv-$pkgver"
+
+prepare() {
+	autoreconf -if
+}
+
+build() {
+	./configure --prefix=/usr --enable-iconv
+	make
+}
+
+check() {
+	make check
+}
+
+package() {
+	make DESTDIR="$pkgdir" install
+}
+
+sha512sums="
+ea589344a656c5c7d28ed45e8da36bf7b746b7a82d77a257ddd305e2ebdc34f0ae14a6090e991f47ef7ad37cdc8d7182181c705fb0814e671ef764ca2a6dc2bf  libticonv-1.1.5.tar.bz2
+"

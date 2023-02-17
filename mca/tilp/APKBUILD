@@ -1,0 +1,41 @@
+# Maintainer: mca <103889850+mca3@users.noreply.github.com>
+pkgname=tilp
+pkgver=1.18
+pkgrel=0
+pkgdesc="TI graphing calculator link/transfer program"
+url="http://lpg.ticalc.org/prj_tilp/"
+arch="all"
+license="GPL-2.0"
+depends=""
+depends_dev=""
+makedepends="$depends_dev gtk+2.0-dev libticalcs-dev autoconf automake libtool"
+checkdepends=""
+install=""
+source="
+	http://downloads.sourceforge.net/project/tilp/tilp2-linux/tilp2-1.18/tilp2-$pkgver.tar.bz2
+	./remove-broken-kde-support.patch
+"
+builddir="$srcdir/tilp2-$pkgver"
+
+prepare() {
+	patch -p1 < "$srcdir/remove-broken-kde-support.patch"
+
+	autoreconf -if
+}
+
+build() {
+	./configure --prefix=/usr
+	make
+}
+
+check() {
+	make check
+}
+
+package() {
+	make DESTDIR="$pkgdir" install
+}
+sha512sums="
+8e46337e1ac7de85d88d4cb677910a099cdb6d3f473cdf8ca751a45dd66410b11751cd4555116c9249aa53bd23105957b4b2af2247968ec840da68aeed105f5f  tilp2-1.18.tar.bz2
+2b30aab22d35715aafc208e6bf12e2a2a9be232ddaf7f36a8a7472ea3eea635c7f3064300b0ca007084d6a0e53e198a2712a3a874f932888d0a0c4938f3ac80a  remove-broken-kde-support.patch
+"
