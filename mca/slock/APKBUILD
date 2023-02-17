@@ -1,0 +1,27 @@
+# Maintainer: mca3 <103889850+mca3@users.noreply.github.com>
+pkgname=slock
+pkgver=20221228
+pkgrel=0
+pkgdesc="mca's build of slock"
+url='https://github.com/mca3/slock'
+arch="all"
+license="MIT"
+depends=""
+makedepends="libx11-dev libxrandr-dev"
+options="!check suid"
+subpackages="$pkgname-doc"
+_rev='aedda5593c1c3c9bebfb279f6812abc699fbb9e8'
+source="https://github.com/mca3/slock/archive/$_rev.tar.gz"
+builddir="$srcdir/slock-$_rev"
+
+build() {
+	make
+}
+
+package() {
+	make PREFIX="/usr" DESTDIR="$pkgdir" install
+}
+
+sha512sums="
+f2a81802d9e3064090568d80a6aa023b6ef7b3ba80a0b5ed32a26aace85e9ad89f3702cf164d43f250ef6ad3bbca4270385fa1adaa7194af01805419861f8772  aedda5593c1c3c9bebfb279f6812abc699fbb9e8.tar.gz
+"
