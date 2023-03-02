@@ -1,6 +1,6 @@
 # Maintainer: mca3 <103889850+mca3@users.noreply.github.com>
 pkgname=dwm
-pkgver=20230223
+pkgver=20230302
 pkgrel=0
 pkgdesc="mca's build of dwm"
 url='https://github.com/mca3/dwm'
@@ -11,7 +11,7 @@ makedepends="libx11-dev libxft-dev libxinerama-dev"
 install=""
 options="!check"
 subpackages="$pkgname-doc"
-_rev='cc856ed67b519c4e9d02673cdd35d5b907507e57'
+_rev='36f1c5fd95077ecf2fba24401f99cd2ca9770b1c'
 source="https://github.com/mca3/dwm/archive/$_rev.tar.gz"
 builddir="$srcdir/dwm-$_rev"
 
@@ -24,5 +24,5 @@ package() {
 }
 
 sha512sums="
-d770386e84f78cd9a293311fa160721b97e6f78a2c6062c85e8745ea45b5870f3327a49a89c52c05c40e53b995598951d009e9c74d35a51567f1b2e8cca295c3  cc856ed67b519c4e9d02673cdd35d5b907507e57.tar.gz
+8c7d4c0f399ee3750471167f7329cf6409bf046d0d9523ff9f95ad38516f008be94c3d888572a3f9b22a4d57fc1e11a040891d6018a44ed5a0c3b74b16c91999  36f1c5fd95077ecf2fba24401f99cd2ca9770b1c.tar.gz
 "
