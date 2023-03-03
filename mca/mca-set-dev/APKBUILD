@@ -1,0 +1,27 @@
+# Maintainer: mca3 <103889850+mca3@users.noreply.github.com>
+pkgname=mca-set-dev
+pkgdesc="Development tools meta package"
+pkgver="20230302"
+pkgrel=0
+url="https://example.com"
+arch="noarch"
+options="!check"
+license="MIT"
+depends="
+	alpine-sdk
+	gdb
+	go
+	jq
+	man-pages
+	man-pages-posix
+	mosh
+	shellcheck
+	staticcheck
+	strace
+	tokei
+	valgrind
+"
+
+package() {
+	mkdir -p "$pkgdir"
+}

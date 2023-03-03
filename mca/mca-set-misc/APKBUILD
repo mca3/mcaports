@@ -1,0 +1,22 @@
+# Maintainer: mca3 <103889850+mca3@users.noreply.github.com>
+pkgname=mca-set-misc
+pkgdesc="Misc tools"
+pkgver="20230302"
+pkgrel=0
+url="https://example.com"
+arch="noarch"
+options="!check"
+license="MIT"
+depends="
+	aria2
+	croc
+	exiv2
+	gimp
+	ncdu
+	netsurf
+	pfetch
+"
+
+package() {
+	mkdir -p "$pkgdir"
+}

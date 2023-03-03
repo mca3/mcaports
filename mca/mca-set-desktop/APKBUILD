@@ -1,60 +1,50 @@
 # Maintainer: mca3 <103889850+mca3@users.noreply.github.com>
 pkgname=mca-set-desktop
 pkgdesc="Meta package for mca's desktop"
-pkgver="20230217"
-pkgrel=1
+pkgver="20230302"
+pkgrel=2
 url="https://example.com"
 arch="noarch"
 options="!check"
 license="MIT"
 depends="
 	aerc
-	alsa-utils
-	aria2
 	brightnessctl
-	croc
-	darkhttpd
 	dmenu
 	dunst
 	dwm
 	elogind
-	exiv2
 	feh
 	ffmpeg
 	firefox-esr
 	font-roboto
 	font-sarasa-gothic
-	gimp
 	git
 	gnupg
+	htop
 	imv
 	isync
-	jq
 	libnotify
+	links
+	lua5.1
 	luajit
 	maim
 	mpv
-	ncdu
 	neovim
-	netsurf
+	notmuch
 	parallel
 	pass
 	pass-otp
-	pfetch
 	picom
-	pipewire
-	pipewire-alsa
-	pipewire-pulse
-	pipewire-spa-tools
-	pipewire-tools
 	ripgrep
+	rtkit
 	runit
 	setxkbmap
 	slock
 	st
+	tlp
 	weechat
 	weechat-python
-	wireplumber
 	xclip
 	xdotool
 	xrandr
@@ -65,6 +55,8 @@ depends="
 	zathura
 	zathura-pdf-mupdf
 	zsh
+
+	mca-set-audio
 "
 
 package() {
