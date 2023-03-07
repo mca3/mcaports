@@ -1,0 +1,40 @@
+# Maintainer: mca3 <103889850+mca3@users.noreply.github.com>
+pkgname=xss-lock
+pkgver=0.3.0
+pkgrel=0
+pkgdesc="Execute commands on screen lock events"
+url="https://bitbucket.org/raymonad/xss-lock"
+arch="all"
+license="MIT"
+depends=""
+makedepends="glib-dev libxcb-dev xcb-util-dev cmake py3-docutils"
+checkdepends=""
+install=""
+subpackages="$pkgname-doc $pkgname-bash-completion $pkgname-zsh-completion"
+_commit="1e158fb20108" # bitbucket has smaller hashes
+source="https://bitbucket.org/raymonad/xss-lock/get/$_commit.tar.gz"
+builddir="$srcdir/raymonad-xss-lock-$_commit"
+
+build() {
+	if [ "$CBUILD" != "$CHOST" ]; then
+		CMAKE_CROSSOPTS="-DCMAKE_SYSTEM_NAME=Linux -DCMAKE_HOST_SYSTEM_NAME=Linux"
+	fi
+
+	cmake -B build \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		$CMAKE_CROSSOPTS .
+
+	cmake --build build
+}
+
+check() {
+	cd build
+	CTEST_OUTPUT_ON_FAILURE=TRUE ctest
+}
+
+package() {
+	DESTDIR="$pkgdir" cmake --install build
+}
+sha512sums="
+bb37f61052d49a7476b99e6967afb596c6443fe326551bbf543e94981a0c365fd5f3ceff2d878630f86d61db61a3ccca282d211fc8923e7bbfe8bd35fce155af  1e158fb20108.tar.gz
+"
