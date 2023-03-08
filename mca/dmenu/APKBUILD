@@ -1,6 +1,6 @@
 # Maintainer: mca3 <103889850+mca3@users.noreply.github.com>
 pkgname=dmenu
-pkgver=20230304
+pkgver=20230308
 pkgrel=0
 pkgdesc="mca's build of dmenu"
 url='https://github.com/mca3/dmenu'
@@ -11,7 +11,7 @@ makedepends="libx11-dev libxft-dev libxinerama-dev"
 install=""
 subpackages="$pkgname-doc"
 options="!check"
-_rev='5b61f5e203b73cb387f7d72d883ccad37bd36a5d'
+_rev='c39d4ec6d4cee6a048168b668b91ac306b337fb7'
 source="https://github.com/mca3/dmenu/archive/$_rev.tar.gz"
 builddir="$srcdir/dmenu-$_rev"
 
@@ -24,5 +24,5 @@ package() {
 }
 
 sha512sums="
-b5671fa09edda42a7af1c7f7fb62ad1cacaf93c72f53480012e41e1a6a4a41cc16506189d3c66772a9b34c4595ca2fd84e9b49636eaa9c3fef4ba170b89f09a5  5b61f5e203b73cb387f7d72d883ccad37bd36a5d.tar.gz
+1baa7959b9c5f07dfcd54c1d59179da3995fead201fba6b96bbc63ad8110d754cebae990136841f4a24af57e5ada2a2abd4de30c7d6b6482a65d9a68cd0d4289  c39d4ec6d4cee6a048168b668b91ac306b337fb7.tar.gz
 "
