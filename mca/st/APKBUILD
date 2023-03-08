@@ -1,6 +1,6 @@
 # Maintainer: mca3 <103889850+mca3@users.noreply.github.com>
 pkgname=st
-pkgver=20221227
+pkgver=20230308
 pkgrel=0
 pkgdesc="mca's build of st"
 url='https://github.com/mca3/st'
@@ -12,7 +12,7 @@ checkdepends=""
 install=""
 options="!check"
 subpackages="$pkgname-doc"
-_rev='7730460d56e90f341a747cf9a27cb8d2f7ef1c1f'
+_rev='0f886dd107d3b16921f48bcee42c3cc4bdaa1641'
 source="https://github.com/mca3/st/archive/$_rev.tar.gz"
 builddir="$srcdir/st-$_rev"
 
@@ -25,5 +25,5 @@ package() {
 }
 
 sha512sums="
-1cea843c6596ee3933dd1990a6f49e34f972f85f74b9b1cc1c6a1d3ee028b27f4293385d4dfed80a932f0374af927ac083166bfdfc9224601ccbae0cb1e5f29e  7730460d56e90f341a747cf9a27cb8d2f7ef1c1f.tar.gz
+2806df05ac30ad0a628ab013f87c8665b3ef2a5ead672dd824de122c7c5b88f5d5a92e8a40a0234a6cfd08f64566afe5cce67de2d18206d5db53b49e25c07055  0f886dd107d3b16921f48bcee42c3cc4bdaa1641.tar.gz
 "
