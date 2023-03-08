@@ -1,7 +1,7 @@
 # Maintainer: mca3 <103889850+mca3@users.noreply.github.com>
 pkgname=mca-set-desktop
 pkgdesc="Meta package for mca's desktop"
-pkgver="20230302"
+pkgver="20230308"
 pkgrel=2
 url="https://example.com"
 arch="noarch"
@@ -50,6 +50,7 @@ depends="
 	xrandr
 	xset
 	xsetroot
+	xss-lock
 	xwallpaper
 	yt-dlp
 	zathura
